@@ -1,0 +1,18 @@
+.text-input{
+  border: transparent;
+  font-size: 20px;
+  padding: 10px;
+  width: 500px;
+}
+.file-input{
+  font-size: 20px;
+}
+.button-input{
+  color: black;
+  background: blanchedalmond;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  width: 100px;
+  
+}

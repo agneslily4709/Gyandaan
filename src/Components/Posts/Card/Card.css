@@ -1,0 +1,28 @@
+.colour{
+    width: 30px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+}
+.online{
+    color: green;
+}
+.offline{
+    color: red;
+}
+.cardss{
+    margin: 25px 20px;
+    border: 2px blue solid;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
+.user-info{
+    align-items: center;
+    margin-left: 10px;
+}
+.user-icons{
+    float: right;
+    list-style-type: none;
+}
