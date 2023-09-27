@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from './Components/Header/Header';
+import Header from './Components/Header';
 import Home from './Components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import SignUp from './Components/Header/Signup/Signup';
-import SignIn from './Components/Header/Signin/Signin';
+import SignUp from './Components/Signup';
+import SignIn from './Components/Signin';
 import Profile from './Components/Header/Profile/Profile';
 import Posts from './Components/Posts/Posts';
-import './App.css'
 
 const App = () => {
   

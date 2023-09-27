@@ -40,14 +40,14 @@
   .text_container h3 {
     text-align: left;
   }
-button{
+/* button{
       text-decoration: none;
       background: transparent;
       border: 1px solid black;
       border-radius: 10px;
       position: fixed;
       right: 10%;
-  }
+  } */
   .blank{
     background: blue;
   }
