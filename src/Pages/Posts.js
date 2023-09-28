@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { db, auth, storage } from "../../imp";
+import { db, auth, storage } from "../imp";
 import { collection, query, where, onSnapshot, addDoc, Timestamp, orderBy,} from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import Card from "./Card/Card";
-import Message from "./Message/Message";
-import Text from "./Text/Text";
-import './Posts.css'
+import Card from "./Card";
+import Message from "./Message";
+import Text from "./Text";
+// import './Posts.css'
 const Posts = () => {
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
@@ -90,25 +90,25 @@ const Posts = () => {
     setUsers(ONLINEaNS)
   }
   return (
-    <div className="screen_conatiner">
-     <input  className='search-box' placeholder='Type any Subject ...' onInput={filterCard}/>
-            <label>Mentor</label>
+    <div className="post-container">
+<div className="post-header">
+<input  className='search-box' placeholder='Type any Subject ...' onInput={filterCard}/>
+            <label className="filter-label">Mentor</label>
             <input type="radio" name="naan" value="mentor" onInput={filterSelected}/>
-            <label>Student</label>
+            <label className="filter-label">Student</label>
             <input type='radio' name="naan" value="student" onInput={filterSelected}/>
-            <label>Online</label>
+            <label className="filter-label">Online</label>
             <input type='radio' name="naan" value="true" onInput={filterOnline}/>
-    <div className="home_container row">
-      <div className="posts_container col">
+</div>
+    <div className="post-component row">
+      <div className="post-users-container col">
         {users.map((user) => (
           <Card key={user.uid} user={user} selectUser={selectUser} one={one} message={message} />
         ))}
       </div>
-      <div className="messages_container col">
-          
-          <div className="messages_posts">
-              <span><em>{message.fullName}</em></span>
-            </div>
+      <div className="post-messages-container col">
+              <h2 className="message-title">{message.fullName}</h2>
+              <hr/>
             <div className="messages">
               {sms.length
                 ? sms.map((sms, i) => (
@@ -117,7 +117,8 @@ const Posts = () => {
             </div>
             <Message handleSubmit={handleSubmit} text={text} setText={setText} setFile={setFile}/>
       </div>
-    </div></div>
+    </div>
+    </div>
   );
 };
 

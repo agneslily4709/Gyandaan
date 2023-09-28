@@ -1,6 +1,5 @@
 import React from 'react';
-import './popup.css';
-import welcome from '../welcome.png'
+import welcome from '../Assets/welcome.png'
 const Popup = (props) => {
 
     return ((props.trigger) ? (

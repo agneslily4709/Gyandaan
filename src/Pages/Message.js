@@ -1,9 +1,8 @@
 import React from "react";
-import './Message.css';
+import "../styles.css"
 const Message = ({ handleSubmit, text, setText, setFile }) => {
   return (
-    <div className="footer">
-    <footer class="py-4 bg-dark fixed-bottom">
+    <footer class="py-3 fixed-bottom" style={{backgroundColor:"#080f0f"}}>
       <div class="container">
       <form className="message_form" onSubmit={handleSubmit}>
         <p class="m-0 text-center text-white row">
@@ -18,10 +17,8 @@ const Message = ({ handleSubmit, text, setText, setFile }) => {
           </div>
         </p>
         </form>
-
       </div>
-    </footer>
-  </div>
+      </footer>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
-import './Text.css'
+import "../styles.css"
+
 const Text = ({ sms, one }) => {
   // const scrollRef = useRef();
   // useEffect(() => {

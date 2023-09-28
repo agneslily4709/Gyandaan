@@ -1,11 +1,12 @@
 import React, {useState, useEffect } from "react";
-import Img from "../../Images/dp.jpg";
-import { Link } from "react-router-dom";
+import Img from "../Assets/dp.jpg";
+import { useNavigate } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
-import { db, auth } from "../../../imp";
-import './Profile.css';
+import { db, auth } from "../imp";
+import '../styles.css';
 
 const Profile = () => {
+        const navigate = useNavigate()
   const [user, setUser] = useState();
   useEffect(() => {
     getDoc(doc(db, "users", auth.currentUser.uid)).then((docSnap) => {
@@ -15,15 +16,16 @@ const Profile = () => {
     });
   },[])
   return user ? (
-    <div className="blank">
-    <div className="profile_container">
-        <div className="img_container">
-          <img src={Img} alt="avatar" />
-        </div>
+    <div className="my-container">
+    <div className="profile-component">
+        <h3 className="form-title">Profile</h3>
+
+        <div className="profile-details">
+        <span style={{fontSize:"125px"}}>&#128513;</span>
         <div className="text_container">
-        <Link className="nav-link" to="/posts"><button className="button-close">X</button></Link>
           <p>Name : {user.fullName}</p>
           <p>Location : {user.location}</p>
+          <p>Occupation:{user.selected}</p>
           {user.selected === "mentor" ? (
               <div>
               <p>Profession : {user.profession}</p>
@@ -34,10 +36,12 @@ const Profile = () => {
               <p>Education : {user.education}</p>
               </div>
           )}
-          <hr />
-          <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
         </div>
       </div>
+        <hr/>
+      <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
+      <button className="my-button w-100" onClick={()=>navigate("/posts")}>Close</button>
+          </div>
       </div>
   ) : null;
 };

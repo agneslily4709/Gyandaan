@@ -1,8 +1,9 @@
 import React from 'react';
-import './Card.css'
 import {RiMessage2Line} from 'react-icons/ri';
 import {SiGooglemeet} from 'react-icons/si';
 import {GiPlainCircle} from 'react-icons/gi';
+import "../styles.css"
+
 const Card = ({user, selectUser}) => {
   return (
     <div className='user-section'>

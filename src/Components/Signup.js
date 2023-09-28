@@ -15,14 +15,11 @@ export const SignUp = () => {
     education:'',
     profession:'',
     specialized:'',
-    photo:'',
-    error:null,
-    loading:false,
-
+    photo:`&#12851${Math.floor(Math.random() * (7 - 2 + 1)) + 2};`,
     });
     let navigate = useNavigate();
  
-    const {fullName,email,password,location,selected,education,profession,specialized,photo,loading}=data;
+    const {fullName,email,password,location,selected,education,profession,specialized,photo}=data;
     const handleChange=(e)=>{
         setData({...data,[e.target.name]:e.target.value});
     }
@@ -34,7 +31,6 @@ export const SignUp = () => {
         }
         try {
             const result = await createUserWithEmailAndPassword(auth,email,password)
-            console.log(result.user)
             {data.selected === "student" ?
             await setDoc(doc(db,'users',result.user.uid),{
                 uid:result.user.uid,
@@ -48,33 +44,9 @@ export const SignUp = () => {
                 isOnline:true,
                 photo,
             }):
-            await setDoc(doc(db,'users',result.user.uid),{
-                uid:result.user.uid,
-                fullName,
-                email,
-                password,
-                location,
-                selected,
-                profession,
-                specialized,
-                createdAt:Timestamp.fromDate(new Date()),
-                isOnline:true,
-                photo,
-            });
+            await setDoc(doc(db,'users',result.user.uid),{    uid:result.user.uid,    fullName,    email,    password,    location,    selected,    profession,    specialized,    createdAt:Timestamp.fromDate(new Date()),    isOnline:true,    photo,});
         };   
-         setData({
-             fullName:"",
-             email:"",
-             password:"",
-             location:"",
-             selected:"",
-             education:"",
-             profession:"",
-             specialized:"",
-             photo:"",
-             error:null,
-             loading:false
-            })    
+         setData({ fullName:"", email:"", password:"", location:"", selected:"", education:"", profession:"", specialized:"", photo:"", error:null, loading:false})    
             navigate('/', { replace: true })
     } 
     catch (error) {
@@ -126,9 +98,10 @@ export const SignUp = () => {
         name="selected"
         value={data.selected}
         onChange={handleChange}
+        defaultValue=""
         required
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
     Select an option
   </option>
         <option value="student">Student</option>

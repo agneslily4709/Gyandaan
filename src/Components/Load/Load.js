@@ -1,9 +1,8 @@
 import React from 'react';
-import './Load.css'
 import load from './loading.gif'
 const Load = () => {
   return (
-  <div className='load'><img src={load} alt='loading'/>
+  <div className='my-container'><img src={load} alt='loading'/>
   </div>
 
   );
